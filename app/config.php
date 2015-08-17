@@ -6,7 +6,7 @@ define ('DS', DIRECTORY_SEPARATOR); // разделитель для путей 
 $sitePath = realpath(dirname(__FILE__)).DS;
 
 define ('SITE_PATH', $sitePath); // путь к корневой папке сайта
- echo 'hi';
+
 // для подключения к бд
 define('DB_USER', 'admin_ub');
 define('DB_PASS', 'RtvvqJGQwESv3hDP');
