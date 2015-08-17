@@ -8,7 +8,7 @@ class Controller_Index Extends Controller_Base {
     // экшен
     function index() {
         $model = new Model_Users();
-        $userInfo = $model->getUser();
+        $userInfo = $model->getUser(2);
         $this->template->vars('userInfo', $userInfo);
         $this->template->view('index');
     }   
