@@ -1,4 +1,3 @@
-
 <?php
 
 // модель
@@ -16,15 +15,28 @@ class Model_Users {
     }
 
     public function getUser($id) {
-
-        return array('id' => $id, 'name' => 'test_name');
+        $_SESSION['user'] = array('display_name'=> 'Вася');
+        return array('id' => $id, 'display_name' => 'test_name');
     }
+    
+   
 
     public function addUser($name) {
-        array('id' => $id, 'name' => 'test_name');
+        array('id' => $id, 'display_name' => 'test_name');
         return true;
     }
 
   
 
+}
+
+class User{
+    public  $id,
+            $userLogin,
+            $user_registred,
+            $user_status,
+            $display_name,
+            $user_pass,
+            $user_email,
+            $session_id;
 }

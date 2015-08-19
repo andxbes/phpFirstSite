@@ -1,5 +1,88 @@
 html body{
-    background: red;
+    margin: 0px;
+    padding: 0px;
+    color: darkred;
+    background-color: activeborder;
 }
+
+div.page-header{
+    
+    width: 100%;
+    position: relative;
+    height: 80px;
+    
+   // z-index: 5;
+    color: #f1c40f;
+    background-image:linear-gradient(#f1c40f,transparent);
+
+    overflow: hidden;
+}
+
+footer.page-footer {
+    width: 100%;
+    min-height: 50px;
+    padding: 20px;
+    font-size: 14px;
+    color: black;
+    background-color: #f1c40f;
+    background-image:
+        linear-gradient(45deg, transparent 50%, white 50%),
+        linear-gradient(-45deg, transparent 50%, white 50%),
+        linear-gradient(135deg, transparent 50%, #2c3e50 50%),
+        linear-gradient(-135deg, transparent 50%, #2c3e50 50%);
+    background-size: 10px 12px;
+    background-repeat: repeat-x;
+    background-position: 0 0, 0 0, 0 100%, 0 100%;
+}
+
+
+.page-header div{
+    background: grey;
+    width: auto;
+}
+
+#sitename{
+    position: absolute;
+    top:5px;
+    bottom: 5px;
+    left: 5px;
+    width: 70%;
+    height: auto;
+    text-align: center;
+    
+}
+
+#user{
+    position: absolute;
+    top:5px;
+    bottom: 5px;
+    padding: inherit;
+    height: auto;
+    right: 5px;
+    width: 20%;
+    padding:  10px 40px 10px 40px ;
+  
+    
+    
+}
+#user a:first-child{
+    font-size: 20px;
+}
+
+#user a:last-child{
+   position: absolute;
+   float: bottom; 
+   background: red;
+   float: bottom;
+   font-size:  14px;
+   background: 0px;
+   padding: 5px;
+}
+
+#content{
+    background: burlywood;
+}
+
+
 
 

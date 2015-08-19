@@ -12,7 +12,7 @@
  * @author Andr
  */
 class Template {
-    private $template;
+    //private $template;
     private $controller;
     private $layouts;
     private $vars = array();
