@@ -2,12 +2,10 @@
 // включим отображение всех ошибок
 error_reporting (E_ALL); 
 // подключаем конфиг
-session_start();
-
 include ('/app/config.php');
 
-//// Соединяемся с БД
-//$dbObject = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
+//если у пользователя есть индификатор - начинаем сессию 
+if (isset($_REQUEST[session_name()])) session_start();
  
 // подключаем ядро сайта
 include (SITE_PATH . 'core' . DS . 'core.php'); 

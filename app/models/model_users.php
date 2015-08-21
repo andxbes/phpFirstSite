@@ -15,16 +15,22 @@ class Model_Users {
     }
 
     public function getUser($id) {
-        $_SESSION['user'] = array('display_name'=> 'Вася');
+        
+        //получить данные из базы 
+        
+        
+       
         return array('id' => $id, 'display_name' => 'test_name');
     }
     
    
-
+    //TODO реализовать со всеми необходимыми полями 
     public function addUser($name) {
         array('id' => $id, 'display_name' => 'test_name');
         return true;
     }
+    
+    
 
   
 

@@ -13,6 +13,8 @@
             <h1>My site</h1> 
             </div>
             <?php
+            
+            //вынести в контроллер 
             $user = (array)$_SESSION['user'];
             
             
