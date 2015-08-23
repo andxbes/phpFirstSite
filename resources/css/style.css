@@ -1,26 +1,76 @@
-html body{
+*{
     margin: 0px;
     padding: 0px;
+}
+
+html body{
     color: darkred;
     background-color: activeborder;
 }
 
 div.page-header{
-    
+    display: table;
     width: 100%;
     position: relative;
-    height: 80px;
-    
-   // z-index: 5;
+    border-spacing: 10px;
     color: #f1c40f;
-    background-image:linear-gradient(#f1c40f,transparent);
-
-    overflow: hidden;
+    background-image:linear-gradient(#f1c40f , red ,#f1c40f);
+    margin-bottom: 5px;
 }
+
+
+
+.page-header div{
+    display: table-cell;
+    background: grey;
+    text-align: center;
+}
+
+
+
+
+
+/*userField hide - show*/
+
+.hide, .hide + label ~ div{
+    display: none;
+}
+
+.hide + label,
+.hide:checked + label {
+    border-bottom: 1px dotted green;
+    cursor: pointer;
+}
+
+
+.hide:checked + label + div {
+    position: absolute;
+    text-align: left;
+    display: inherit;
+    background: green;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    border-style: dotted;
+
+}
+/*=========================================================================*/
+
+#content{
+
+    background: burlywood;
+    text-align: center;
+    margin: 0 5% 0 5%;
+
+}
+.contentHeader+div{
+    text-align: left;
+    padding: 10px;
+}
+
 
 footer.page-footer {
     width: 100%;
-    min-height: 50px;
     padding: 20px;
     font-size: 14px;
     color: black;
@@ -34,55 +84,6 @@ footer.page-footer {
     background-repeat: repeat-x;
     background-position: 0 0, 0 0, 0 100%, 0 100%;
 }
-
-
-.page-header div{
-    background: grey;
-    width: auto;
-}
-
-#sitename{
-    position: absolute;
-    top:5px;
-    bottom: 5px;
-    left: 5px;
-    width: 70%;
-    height: auto;
-    text-align: center;
-    
-}
-
-#user{
-    position: absolute;
-    top:5px;
-    bottom: 5px;
-    padding: inherit;
-    height: auto;
-    right: 5px;
-    width: 20%;
-    padding:  10px 40px 10px 40px ;
-  
-    
-    
-}
-#user a:first-child{
-    font-size: 20px;
-}
-
-#user a:last-child{
-   position: absolute;
-   float: bottom; 
-   background: red;
-   float: bottom;
-   font-size:  14px;
-   background: 0px;
-   padding: 5px;
-}
-
-#content{
-    background: burlywood;
-}
-
 
 
 

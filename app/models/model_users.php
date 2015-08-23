@@ -24,12 +24,9 @@ class Model_Users {
     }
     
    
-    //TODO реализовать со всеми необходимыми полями 
-    public function addUser($name) {
-        array('id' => $id, 'display_name' => 'test_name');
-        return true;
-    }
-    
+   //in controller singIn
+     //session_start();
+        //$_SESSION['user'] = array('display_name'=> $userLogin);
     
 
   

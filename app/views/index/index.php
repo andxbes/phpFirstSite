@@ -1,7 +1,7 @@
 
 <div id='content'>
-Test view <br/>
-id: <?=$userInfo['id'];?><br/>
-name: <?=$userInfo['display_name'];?>
-
+    
+    <div class="contentHeader"> <h1> <?= $content['header']; ?></h1></div>
+    <div class="contentText"><?= $content['text']; ?></div>
+    
 </div>
