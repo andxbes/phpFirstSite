@@ -3,13 +3,22 @@
 error_reporting (E_ALL); 
 // подключаем конфиг
 include ('/app/config.php');
-
-//если у пользователя есть индификатор - начинаем сессию 
-if (isset($_REQUEST[session_name()])) session_start();
  
+
+
 // подключаем ядро сайта
 include (SITE_PATH . 'core' . DS . 'core.php'); 
- 
+
+
+//если у пользователя есть индификатор - начинаем сессию 
+session_start();
+if (!isset($_SESSION['USER'])){
+    $user = new Model_User();
+    $_SESSION['USER'] = $user;
+}
+
+
+
 // Загружаем router
 $router = new Router($registry);
 // записываем данные в реестр

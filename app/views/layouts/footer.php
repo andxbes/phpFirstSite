@@ -1,4 +1,4 @@
 
 
-<footer class="page-footer"> footer </footer>
+<footer id="page-footer"> footer </footer>
 

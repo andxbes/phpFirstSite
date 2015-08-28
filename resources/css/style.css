@@ -1,11 +1,28 @@
 *{
     margin: 0px;
     padding: 0px;
+   
 }
 
-html body{
+body{
+    display: block;
     color: darkred;
     background-color: activeborder;
+    text-align: center;
+    background-image: url('/resources/pictures/Hexagon-6.JPG');
+    background-repeat: repeat-x;
+    background-size: auto 100% ;
+    
+   
+}
+
+#sitename a ,
+#sitename a:visited ,
+#sitename a:active {
+    font-size: 40px;
+    color: #f1c40f;
+    text-decoration: none; 
+
 }
 
 div.page-header{
@@ -32,15 +49,22 @@ div.page-header{
 
 /*userField hide - show*/
 
-.hide, .hide + label ~ div{
+.hide, 
+.hide + label ~ div{
     display: none;
+   
 }
 
 .hide + label,
 .hide:checked + label {
-    border-bottom: 1px dotted green;
+   
+    font-size: 20px;
+    font-weight: bold;
     cursor: pointer;
+
+
 }
+
 
 
 .hide:checked + label + div {
@@ -58,8 +82,8 @@ div.page-header{
 
 #content{
 
-    background: burlywood;
-    text-align: center;
+    background-color:  rgba(255,177,0,0.3);
+    
     margin: 0 5% 0 5%;
 
 }
@@ -69,7 +93,7 @@ div.page-header{
 }
 
 
-footer.page-footer {
+#page-footer {
     width: 100%;
     padding: 20px;
     font-size: 14px;
@@ -85,5 +109,26 @@ footer.page-footer {
     background-position: 0 0, 0 0, 0 100%, 0 100%;
 }
 
+/*forms*/
+form{
+    background: #332b24;
+    margin: auto;
+    max-width: 250px;
+    
+}
+form input{
+    background: #2c3e50;
+    color:white;
+    margin:5px;
+    border-radius: 40px;
+}
+form input[type='submit']{
+    border-radius: inherit;
+}
+
+.container{
+    background-color: rgba(33,33,33,0.4);
+    color: cyan
+}
 
 

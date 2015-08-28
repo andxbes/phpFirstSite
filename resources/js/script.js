@@ -1,7 +1,17 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 
+
+
+
+window.onload = function () {
+
+    $('#page-footer').ready( function () {
+        console.log('loaded footer');
+        var footer = $('#page-footer').first();
+        var diffHieght = $(window).height() - footer.outerHeight();
+        footer.css({'position':'absolute',
+                     'top': diffHieght});
+    });
+
+
+};

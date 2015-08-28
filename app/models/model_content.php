@@ -13,11 +13,11 @@
  */
 class Model_Content {
 
-    public function __construct() {
-        $this->dbo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS, array(
-            PDO::FETCH_ASSOC => true
-        ));
-    }
+//    public function __construct() {
+//        $this->dbo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS, array(
+//            PDO::FETCH_ASSOC => true
+//        ));
+//    }
 
     public function getContent() {
 
