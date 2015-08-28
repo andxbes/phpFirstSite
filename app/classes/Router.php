@@ -36,7 +36,7 @@ class Router {
 
     // определение контроллера и экшена из урла
     private function getController(&$file, &$controller, &$action, &$args) {
-        print_r($file.$controller.$action.$args);
+        
         $route = (empty($_GET['route'])) ? '' : $_GET['route'];
         unset($_GET['route']);
         if (empty($route)) {

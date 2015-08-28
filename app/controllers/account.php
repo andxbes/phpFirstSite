@@ -7,54 +7,43 @@ class Controller_Account extends Controller_Base {
     public function index() {
 
 
-
         if (isset($_GET['param'])) {
             $param = $_GET['param'];
-            unset( $_GET['param']);
+            unset($_GET['param']);
             switch ($param) {
 
-                case'up': default : $this->template->view('up');
+                case'account': $this->template->view('account');
                     break;
-                case'in': default : $this->template->view('in');
+                case'up': $this->template->view('up');
                     break;
-                case'out': default : $this->singOut();
+                case'in': $this->template->view('in');
                     break;
-                default : $this->template->view('up');
+                case'out': $this->singOut();
+                    break;
+                default : $this->template->view('account');
             }
         }
-        else {
-            $this->template->view('account');
-        }
-        
-       $this->initPOSTParams();
-        
-        
-        
-        
-        
+
+        $this->initPOSTParams();
     }
-    
-    private function initPOSTParams(){
+
+    private function initPOSTParams() {
         if (isset($_POST['submit'])) {
-//            $param = $_POST['submit'];
-            
-            //if()
-            
+
+            if (isset($_POST['r_password'])) {
+                //создаем новую учетную запись 
+                $_SESSION['USER']->addUser($_POST);
+            }
+            else {
+                //или выполняем вход
+                $_SESSION['USER'] = new Model_User($_POST);
+                
+            }
+
+
             print_r($_POST);
-          
-            
-//            switch ($param) {
-//
-//                case'up': default : $this->template->view('up');
-//                    break;
-//                case'in': default : $this->template->view('in');
-//                    break;
-//                case'out': default : $this->singOut();
-//                    break;
-//                default : $this->template->view('up');
-//            }
         }
-      //  unset($_POST);
+        unset($_POST);
     }
 
     private function singOut() {
