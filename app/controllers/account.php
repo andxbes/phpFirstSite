@@ -41,9 +41,9 @@ class Controller_Account extends Controller_Base {
             }
 
 
-            print_r($_POST);
+           // print_r($_POST);
         }
-        unset($_POST);
+       // unset($_POST);
     }
 
     private function singOut() {

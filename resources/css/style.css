@@ -80,6 +80,13 @@ div.page-header{
 }
 /*=========================================================================*/
 
+
+/* blocks to show*/
+.container{
+    background-color: rgba(33,33,33,0.4);
+    color: cyan
+}
+
 #content{
 
     background-color:  rgba(255,177,0,0.3);
@@ -93,6 +100,8 @@ div.page-header{
 }
 
 
+
+/*footer*/
 #page-footer {
     width: 100%;
     padding: 20px;
@@ -126,9 +135,10 @@ form input[type='submit']{
     border-radius: inherit;
 }
 
-.container{
-    background-color: rgba(33,33,33,0.4);
-    color: cyan
+fieldset {
+    color:white;
 }
+
+
 
 
