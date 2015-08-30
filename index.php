@@ -12,10 +12,7 @@ include (SITE_PATH . 'core' . DS . 'core.php');
 
 //если у пользователя есть индификатор - начинаем сессию 
 session_start();
-if (!isset($_SESSION['USER'])){
-    $user = new Model_User();
-    $_SESSION['USER'] = $user;
-}
+
 
 
 

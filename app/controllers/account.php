@@ -7,6 +7,13 @@ class Controller_Account extends Controller_Base {
     public function index() {
 
 
+
+        $this->initGetQuery();
+        $this->initPostQuery();
+    }
+
+    private function initGetQuery() {
+
         if (isset($_GET['param'])) {
             $param = $_GET['param'];
             unset($_GET['param']);
@@ -23,27 +30,46 @@ class Controller_Account extends Controller_Base {
                 default : $this->template->view('account');
             }
         }
-
-        $this->initPOSTParams();
     }
 
-    private function initPOSTParams() {
+    private function initPostQuery() {
         if (isset($_POST['submit'])) {
-
             if (isset($_POST['r_password'])) {
-                //создаем новую учетную запись 
-                $_SESSION['USER']->addUser($_POST);
+                $this->whenRegistration();
             }
             else {
-                //или выполняем вход
-                $_SESSION['USER'] = new Model_User($_POST);
-                
+                $this->whenEntering();
             }
-
-
-           // print_r($_POST);
         }
-       // unset($_POST);
+        unset($_POST);
+    }
+
+    private function whenRegistration() {
+        try {
+            //создаем новую учетную запись 
+            $request = Model_User::addUserToDB($_POST);
+            if ($request->errorInfo()[1] == 0) {
+                echo 'Поздравляем Вас с успешной регистрацией !';
+            }
+            else {
+                $errorMessage = $request->errorInfo()[2];
+                echo '<details>'
+                . '<summary><strong> Такой пользователь или e-mail уже зарегестрированы <strong></summary>'
+                . $errorMessage . '</details>';
+            }
+        } catch (ErrorException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    private function whenEntering() {
+        //или выполняем вход
+        try {
+            $user = new Model_User($_POST);
+            $_SESSION['USER'] = $user;
+        } catch (ErrorException $e) {
+            echo $e->getMessage();
+        }
     }
 
     private function singOut() {

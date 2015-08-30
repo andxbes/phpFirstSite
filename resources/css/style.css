@@ -1,7 +1,10 @@
 *{
     margin: 0px;
     padding: 0px;
-   
+    
+}
+body, html {
+    height: 100%;
 }
 
 body{
@@ -9,10 +12,10 @@ body{
     color: darkred;
     background-color: activeborder;
     text-align: center;
-    background-image: url('/resources/pictures/Hexagon-6.JPG');
+    background: url('/resources/pictures/Hexagon-6.JPG')  no-repeat center center fixed;
     background-repeat: repeat-x;
     background-size: auto 100% ;
-    
+   
    
 }
 
@@ -103,8 +106,10 @@ div.page-header{
 
 /*footer*/
 #page-footer {
+   
     width: 100%;
-    padding: 20px;
+    padding-top:20px;
+    padding-bottom:20px;
     font-size: 14px;
     color: black;
     background-color: #f1c40f;

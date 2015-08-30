@@ -8,14 +8,22 @@
     </head>        
     <body>
         <?php
-        $login = $_SESSION['USER']->getLogin();
         $options = '';
-        if ($login == Model_User::DEFAULT_Login) {
+        $name = '';
+        if (isset($_SESSION['USER'])) {
+            $name = $_SESSION['USER']->getName();
+        }
+        else {
+            $name = Model_User::DEFAULT_NAME;
+        }
+
+
+        if ($name == Model_User::DEFAULT_NAME) {
             $options = '<a href="/?route=account&param=up">Регистрация</a><br>'
                     . '<a href="/?route=account&param=in">Вход</a>';
         }
         else {
-            $options = '<a href="/?route=account">Личный кабинет</a><br>'
+            $options = '<a href="/?route=account&param=account">Личный кабинет</a><br>'
                     . '<a href="/?route=account&param=out">Выход</a>';
         }
         ?>
@@ -25,7 +33,7 @@
             <div id='sitename'><a href="/">My site</a> </div>
             <div id="user">
                 <input class="hide" id="userNick" type="checkbox">
-                <label for="userNick"> <?= $login ?> </label> 
+                <label for="userNick"> <?= $name ?> </label> 
                 <div id="userProperty"> <?= $options ?> </div>
             </div>
 

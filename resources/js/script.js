@@ -3,15 +3,18 @@
 
 
 
-window.onload = function () {
+window.onload = toBottom;
+ $(document).resize( toBottom());
 
-    $('#page-footer').ready( function () {
+function toBottom (){
+    
+    
         console.log('loaded footer');
         var footer = $('#page-footer').first();
-        var diffHieght = $(window).height() - footer.outerHeight();
+        var diffHieght = $(document).height() - footer.outerHeight();
+        console.info(diffHieght);
         footer.css({'position':'absolute',
                      'top': diffHieght});
-    });
-
-
-};
+ 
+    
+}
