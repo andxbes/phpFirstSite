@@ -14,7 +14,7 @@ class Model_User {
 
         if (isset($arr) || isset($arr['login']) || isset($arr['password'])) {
 
-            $request = Model_User::getUserfromDB($arr);
+            $request = Model_User::getUsersFromDB($arr);
 
             $res = $request[0];
             if ($res['password'] == md5($arr['password'])) {
@@ -83,9 +83,9 @@ class Model_User {
     }
     
     
-    public static function getUserfromDB($arr) {
+    public static function getUsersFromDB($arr) {
 
-        //дописать автоматическое поределение поля для поиска 
+        //дописать автоматическое определение поля для поиска 
 
         $pdoData = Model_User::pdo()->prepare(
                 'SELECT * FROM users WHERE users.login="' . $arr['login'] . '"');

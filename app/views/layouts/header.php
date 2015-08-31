@@ -12,20 +12,16 @@
         $name = '';
         if (isset($_SESSION['USER'])) {
             $name = $_SESSION['USER']->getName();
+             $options = '<a href="/?route=account&param=account">Личный кабинет</a><br>'
+                    . '<a href="/?route=account&param=out">Выход</a>';
         }
         else {
             $name = Model_User::DEFAULT_NAME;
-        }
-
-
-        if ($name == Model_User::DEFAULT_NAME) {
-            $options = '<a href="/?route=account&param=up">Регистрация</a><br>'
+              $options = '<a href="/?route=account&param=up">Регистрация</a><br>'
                     . '<a href="/?route=account&param=in">Вход</a>';
         }
-        else {
-            $options = '<a href="/?route=account&param=account">Личный кабинет</a><br>'
-                    . '<a href="/?route=account&param=out">Выход</a>';
-        }
+
+
         ?>
 
         <div class="page-header"> 
