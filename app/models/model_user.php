@@ -81,14 +81,19 @@ class Model_User {
             throw new ErrorException('Пароли не совпадают');
         }
     }
-    
-    
+
     public static function getUsersFromDB($arr) {
 
         //дописать автоматическое определение поля для поиска 
+        $field = array_keys($arr)[0];
+        $val = array_values($arr)[0];
+        
+        //echo $field.'='.$val;
+        
+        
 
         $pdoData = Model_User::pdo()->prepare(
-                'SELECT * FROM users WHERE users.login="' . $arr['login'] . '"');
+                'SELECT * FROM users WHERE users.'.$field.'="' . $val . '"');
         $pdoData->execute();
 
         if($pdoData->errorCode() != 0){

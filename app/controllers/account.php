@@ -7,9 +7,11 @@ class Controller_Account extends Controller_Base {
     public function index() {
 
 
-
+ 
         $this->initGetQuery();
         $this->initPostQuery();
+        
+       
     }
 
     private function initGetQuery() {
@@ -33,6 +35,7 @@ class Controller_Account extends Controller_Base {
     }
 
     private function initPostQuery() {
+       
         if (isset($_POST['submit'])) {
             if (isset($_POST['r_password'])) {
                 $this->whenRegistration();
@@ -41,6 +44,14 @@ class Controller_Account extends Controller_Base {
                 $this->whenEntering();
             }
         }
+        
+        
+        if(isset($_POST['chek'])){
+            unset($_POST['chek']);
+            echo $this->checkField($_POST);
+        }
+        
+        
         unset($_POST);
     }
 
@@ -67,6 +78,7 @@ class Controller_Account extends Controller_Base {
         try {
             $user = new Model_User($_POST);
             $_SESSION['USER'] = $user;
+          
         } catch (ErrorException $e) {
             echo $e->getMessage();
         }
@@ -77,6 +89,15 @@ class Controller_Account extends Controller_Base {
         session_destroy();
         header('Location:' . '/');
         return;
+    }
+
+    private  function checkField($arr) {
+        try {
+            $contacts = Model_User::getUsersFromDB($arr);
+            return true;
+        } catch (ErrorException $e) {
+            return false;
+        }
     }
 
 }

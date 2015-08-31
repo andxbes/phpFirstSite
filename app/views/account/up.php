@@ -14,3 +14,33 @@
 
     <input type="submit" name="submit" value=" Регистрация "  />
 </form>
+<script>
+ $('input[name="login"],input[name="email"]').bind('focusout', function () {
+        var element = this;
+        
+        
+        var dat = "chek=true"+"&"+ this.name + "=" + this.value ;
+        //console.info(dat);
+
+        $.ajax({
+            type: 'POST',
+            url: window.location.hostname + "/?route=account",
+            data: dat,
+            success: function (data, textStatus, jqXHR) {
+                console.info(data.toString() + " / "  + textStatus + " / "+ jqXHR);
+               if(data!=1){
+                   $(element).css('background-color', 'green') ;
+                   $(element).attr('title','OK');
+               }else{
+                    $(element).css('background-color', 'red') ;
+                    $(element).attr('title','Такой пользователь уже зарегестрирован');
+               }
+            } ,
+            error: function (jqXHR, textStatus, errorThrown) {
+                 console.error(errorThrown + " / "  + textStatus + " / "+ jqXHR);
+            }
+
+
+        });
+    });
+</script>
