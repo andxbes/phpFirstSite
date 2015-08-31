@@ -27,7 +27,7 @@
             url: window.location.hostname + "/?route=account",
             data: dat,
             success: function (data, textStatus, jqXHR) {
-                console.info(data.toString() + " / "  + textStatus + " / "+ jqXHR);
+                //console.info(data.toString() + " / "  + textStatus + " / "+ jqXHR);
                if(data!=1){
                    $(element).css('background-color', 'green') ;
                    $(element).attr('title','OK');

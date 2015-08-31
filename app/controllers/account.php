@@ -78,7 +78,7 @@ class Controller_Account extends Controller_Base {
         try {
             $user = new Model_User($_POST);
             $_SESSION['USER'] = $user;
-          
+            echo 'Вы выполнили вход под именем "'.$user->getName().'"';
         } catch (ErrorException $e) {
             echo $e->getMessage();
         }
