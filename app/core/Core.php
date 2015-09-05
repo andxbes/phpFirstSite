@@ -33,6 +33,5 @@ function __autoload($className) {
     include ($file);
 }
  
-// запускаем реестр (хранилище)
-$registry = new Registry;
+
 

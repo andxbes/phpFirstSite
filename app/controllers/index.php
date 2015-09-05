@@ -3,7 +3,7 @@
 // контролер
 class Controller_Index Extends Controller_Base {    
     // шаблон
-    public $layouts = "StartPage";
+    public $layouts = "start_page";
      
     // экшен
     function index() {

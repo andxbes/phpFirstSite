@@ -57,6 +57,7 @@ class Model_User {
             PDO::FETCH_ASSOC => true
                 )
         );
+        $pdo->exec('SET NAMES utf8');
         return $pdo;
     }
 
@@ -82,11 +83,15 @@ class Model_User {
         }
     }
 
-    public static function getUsersFromDB($arr) {
+    public static function getUsersFromDB($arr=null) {
 
+	
+	 
         //дописать автоматическое определение поля для поиска 
-        $field = array_keys($arr)[0];
-        $val = array_values($arr)[0];
+        $arrFields = array_keys($arr);
+        $field = $arrFields[0];
+        $arrValues=array_values($arr);
+        $val = $arrValues[0];
         
         //echo $field.'='.$val;
         
@@ -97,7 +102,8 @@ class Model_User {
         $pdoData->execute();
 
         if($pdoData->errorCode() != 0){
-            throw new ErrorException($pdoData->errorInfo()[2]);
+            $error = $pdoData-> errorInfo();
+            throw new ErrorException($error[2]);
         }
 
         $request = $pdoData->fetchAll();

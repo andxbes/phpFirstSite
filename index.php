@@ -2,7 +2,7 @@
 // включим отображение всех ошибок
 error_reporting (E_ALL); 
 // подключаем конфиг
-include ('/app/config.php');
+include ('./app/config.php');
  
 
 
@@ -14,8 +14,8 @@ include (SITE_PATH . 'core' . DS . 'core.php');
 session_start();
 
 
-
-
+// запускаем реестр (хранилище)
+$registry = new Registry;
 // Загружаем router
 $router = new Router($registry);
 // записываем данные в реестр

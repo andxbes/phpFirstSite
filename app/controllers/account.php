@@ -59,11 +59,12 @@ class Controller_Account extends Controller_Base {
         try {
             //создаем новую учетную запись 
             $request = Model_User::addUserToDB($_POST);
-            if ($request->errorInfo()[1] == 0) {
+            if ($request->errorCode() == 0) {
                 echo 'Поздравляем Вас с успешной регистрацией !';
             }
             else {
-                $errorMessage = $request->errorInfo()[2];
+                $err= $request->errorInfo();
+                $errorMessage = $err[2];
                 echo '<details>'
                 . '<summary><strong> Такой пользователь или e-mail уже зарегестрированы <strong></summary>'
                 . $errorMessage . '</details>';
